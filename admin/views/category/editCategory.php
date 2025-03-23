@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-<form action="/admin/index.php?act=editCategory&id=<?=['id']?>" method="post">
+<form action="index.php?act=edit-Category&id=<?=$category['id']?>" method="post">
   <div class="mb-3">
     <label for="nameCategory" class="form-label">Tên Danh Mục</label>
     <input type="text" class="form-control" name="name" value="<?=$category['name']?>">
