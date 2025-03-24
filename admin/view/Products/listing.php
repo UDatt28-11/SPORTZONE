@@ -4,7 +4,9 @@
             <div class="h-100">
                 <div class="row mb-3 pb-1">
                     <div class="col-12">
+                        <br>
                         <h1 class="fs-16 mb-1">Danh Sách Sản Phẩm</h1>
+                        <br>
                         <p class="text-muted mb-0">Danh sách các sản phẩm hiện có.</p>
                     </div>
                 </div>
@@ -20,20 +22,24 @@
                                     <th>Tên Sản Phẩm</th>
                                     <th>Mô Tả Sản Phẩm</th>
                                     <th>Ảnh</th>
+                                    <th>Danh Mục</th>
                                     <th>Thương Hiệu</th>
+                                    <th>Thời Gian</th>
                                     <th>Trạng Thái</th>
                                     <th>Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach($Listproduct as $index => $product) ?>
+                                <?php foreach($Listproduct as $product) : ?>
                                 <tr>
-                                    <td><?= $index + 1 ?></td>
+                                    <td><?= $product['product_id'] ?></td>
                                     <td><?= $product['name'] ?></td>
                                     <td><?= $product['description'] ?></td>
                                     <td>
                                         <img src="<?= $product['main_image'] ?>" width="100px" alt="">
                                     </td>
+                                    <td><?= $product['categoryName'] ?></td>
+                                    <td><?= $product['brandName'] ?></td>
                                     <td><?= $product['date_create'] ?></td>
                                     <td><?= $product['status'] == 1 ? 'Còn hàng' : 'Hết hàng' ?></td>
                                     <td>
@@ -42,6 +48,7 @@
                                             class="btn btn-danger"><i class="fas fa-trash">Xóa</i></a>
                                     </td>
                                 </tr>
+                                <?php endforeach  ?>
                             </tbody>
                         </table>
                     </div>

@@ -38,8 +38,23 @@
         }
     }
 
-   public function addProduct(){
-    
-   }
+    public function getAllProduct(){
+        $sql = "SELECT
+                    products.id as product_id,
+                    products.name,
+                    products.description,
+                    products.main_image,
+                    categories.name as categoryName,
+                    brands.name as brandName,
+                    products.date_create,
+                    products.status
+                    FROM products
+                    INNER JOIN categories ON products.category_id = categories.id
+                    INNER JOIN brands ON products.brand_id = brands.id
+                    ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 ?>
