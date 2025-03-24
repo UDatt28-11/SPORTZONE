@@ -7,9 +7,9 @@ class Productcontroller{
         $this->productModel = new Product();
     }
     public function listing(){
-        $product = $this->productModel->getAllProductVariant();
-        print_r($product);
-        include './view/layout/header.php';
-        include './view/product/listing.php';  
+        $Listproduct = $this->productModel->getAllProductVariant();
+       
+        require_once './view/Products/listing.php';
+        print_r($Listproduct);
     }
 }

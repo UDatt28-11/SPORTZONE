@@ -38,7 +38,7 @@
         }
     }
 
-   public function addProductVariant(){
+   public function addProduct(){
     
    }
 }

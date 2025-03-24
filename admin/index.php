@@ -13,7 +13,6 @@ $act = isset($_GET['act']) ? $_GET['act'] : "";
 $productControllers = new Productcontroller();
 // giao diện
 include 'view/layout/header.php';
-include 'view/layout/sidebar.php';
 
 switch($act){
     case 'listingProduct' :
