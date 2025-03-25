@@ -21,9 +21,9 @@ function connectDB()
 
         // Cài đặt chế độ hiển thị dữ liệu
         $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-
-        return $conn;
         // echo "Kết nối thành công";
+        return $conn;
+        
     } catch (PDOException $e) {
         echo "Lỗi kết nối CSDL: " . $e->getMessage();
     }
