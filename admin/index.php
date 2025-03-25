@@ -8,23 +8,35 @@ include '../admin/common/function.php';
 
 // Nhúng file controller và models
 require_once '../admin/controllers/categoryController.php';
-require '../admin/models/Category.php';
+require_once '../admin/models/Category.php';
+require_once '../admin/controllers/brandsController.php';
+require_once '../admin/models/brand.php';
 
 // Khởi tạo controller
-$controller = new categoryController();
+$controllerCategory = new categoryController();
+$controllerBrands = new brandsController();
+
+
 
 // Khai báo dữ liệu từ URL
 
 switch ($act) {
     case 'static':
         echo "<a href='index.php?act=list-Category'>Danh Mục Sản Phẩm</a>";
+        echo "<a href='index.php?act=list-Brands'>Thương Hiệu</a>";
         break;
 
     case 'list-Category':
-        $controller->listCategory();
+        $controllerCategory->listCategory();
         break;
     case 'edit-Category':
-        $controller->editCategory();
+        $controllerCategory->editCategory();
+        break;
+    case 'list-Brands':
+        $controllerBrands->listBrands();
+        break;
+    case 'edit-Brands':
+        $controllerBrands->editBrands();
         break;
 }
 ?>

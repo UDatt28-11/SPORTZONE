@@ -21,6 +21,8 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Tên Danh Mục</th>
+                                <th>Trạng thái</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -29,6 +31,7 @@
                                 <tr>
                                     <td><?= $Category['id'] ?></td>
                                     <td><?= $Category['name'] ?></td>
+                                    <td><?= $Category['status'] ?></td>
                                     <td>
                                         <a href="?act=edit-Category&id=<?=$Category['id']?>" class="btn btn-primary mb-3">Sửa Danh Mục</a>
                                     </td>
