@@ -31,6 +31,7 @@
 
                                     <td>
                                         <a href="?act=edit-Brands&id=<?=$Brands['id']?>" class="btn btn-primary mb-3">Sửa Tên Brands</a>
+                                        <a href="?act=delete-Brands&id=<?= $Brands['id'] ?>" class="btn btn-danger mb-3">Xóa Thương Hiệu</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

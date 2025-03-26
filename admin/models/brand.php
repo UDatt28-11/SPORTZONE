@@ -35,7 +35,7 @@ class Brands{
     }
     public function deleteBrands($id)
     {
-        $sql = "DELETE FROM brand WHERE id = $id" ;
+        $sql = "DELETE FROM brands WHERE id = $id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
     }

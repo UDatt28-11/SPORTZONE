@@ -46,6 +46,9 @@ switch ($act) {
     case 'add-Brands':
         $controllerBrands->addBrands();
         break;
+    case 'delete-Brands':
+        $controllerBrands->deleteBrands();
+        break;
     case 'edit-Brands':
         $controllerBrands->editBrands();
         break;
