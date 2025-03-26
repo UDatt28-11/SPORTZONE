@@ -29,4 +29,21 @@ class Category{
         $stmt->bindParam(':id',$id);
         $stmt->execute();
     }
+    public function add($name, $status)
+    {
+        $sql = "INSERT INTO categories (name, status) VALUES (:name, :status)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+        $stmt->bindParam(':status', $status, PDO::PARAM_INT);
+
+        // Thực thi câu truy vấn và trả về kết quả
+        return $stmt->execute();
+    }
+    public function deleteCategory($id)
+    {
+        $sql = "DELETE FROM categories WHERE id = $id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+    }
 }
+?>

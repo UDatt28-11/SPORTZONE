@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh Mục</title>
-</head>
-<body>
-<div class="h-100">
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container-fluid">
+        <div class="h-100">
+
             <div class="row mb-3 pb-1">
                 <div class="col-12">
                     <h1 class="fs-16 mb-1">Danh Sách Danh Mục</h1>
@@ -33,7 +29,8 @@
                                     <td><?= $Category['name'] ?></td>
                                     <td><?= $Category['status'] ?></td>
                                     <td>
-                                        <a href="?act=edit-Category&id=<?=$Category['id']?>" class="btn btn-primary mb-3">Sửa Danh Mục</a>
+                                        <a href="index.php?act=edit-Category&id=<?=$Category['id']?>" class="btn btn-primary mb-3">Sửa Danh Mục</a>
+                                        <a href="index.php?act=delete-Category&id=<?=$Category['id']?>" class="btn btn-danger mb-3">Xóa Danh Mục</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -42,5 +39,10 @@
                 </div>
             </div>
         </div>
-</body>
-</html>
+                <!-- </div> -->
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+<!-- /.content -->
+ 
+</div>

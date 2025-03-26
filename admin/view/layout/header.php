@@ -1,6 +1,8 @@
+<?php
+ob_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -135,4 +137,5 @@
                 </li>
             </ul>
         </nav>
-        <?php include 'sidebar.php' ?>
+        <?php include 'sidebar.php'?>
+       

@@ -66,13 +66,14 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="?act=add-category" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Thêm Danh Mục</p>
                             </a>
                         </li>
+                        
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="index.php?act=list-Category" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Quản Lý Danh Mục</p>
                             </a>
@@ -80,7 +81,31 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="?act=listingProduct" class="nav-link">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-copy"></i>
+                        <p>
+                            Thương Hiệu
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="?act=add-Brands" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thêm Thương Hiệu</p>
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a href="index.php?act=list-Brands" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Quản Lý Thương Hiệu</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="index.php?act=listingProduct" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
                             Sản Phẩm

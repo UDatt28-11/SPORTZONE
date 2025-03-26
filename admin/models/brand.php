@@ -27,4 +27,17 @@ class Brands{
         $stmt->bindParam(':id',$id);
         $stmt->execute();
     }
+    public function addBrands($name,$image,$status)
+    {
+        $sql = "INSERT INTO brands (name,logo,status) VALUES ('$name','$image','$status')";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+    }
+    public function deleteBrands($id)
+    {
+        $sql = "DELETE FROM brand WHERE id = $id" ;
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+    }
 }
+?>
