@@ -9,7 +9,7 @@ class Productcontroller{
     public function listing(){
         $Listproduct = $this->productModel->getAllProduct();
     //    print_r($Listproduct);    
-        require_once './view/Products/listing.php';
+        require_once './views/Products/listing.php';
         
     }
 }

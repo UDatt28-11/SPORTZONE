@@ -6,10 +6,10 @@ $act = isset($_GET['act']) ? $_GET['act'] : 'static';
 // Nhúng file env và kết nối DB
 include '../admin/common/env.php';
 include '../admin/common/function.php';
-include 'view/layout/header.php';
+include 'views/layout/header.php';
 // Nhúng file controller và models
 require_once 'models/product.php';
-require_once 'controller/productcontroller.php';
+require_once 'controllers/productcontroller.php';
 require_once '../admin/controllers/category/categoryController.php';
 require_once '../admin/models/Category.php';
 require_once '../admin/controllers/brandsController.php';
@@ -54,5 +54,5 @@ switch ($act) {
         break;
 }
 
-include 'view/layout/footer.php';
+include 'views/layout/footer.php';
 ?>

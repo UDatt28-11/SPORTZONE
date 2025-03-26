@@ -37,7 +37,7 @@ class categoryController
     {
         if(isset($_POST['submit'])){
             $name = $_POST['name'];
-            $status=intval($_POST['status']);
+            $status=$_POST['status'];
             $this->categoryModels->add($name,$status);
             header("Location:./index.php?act=list-Category");
             exit();

@@ -23,9 +23,8 @@
               <div class="mb-3">
                 <label for="status" class="form-label">Trạng Thái</label>
                 <select class="form-select" name="status">
-                  <option value="1" <?= ($category['status'] == 1) ? 'selected' : '' ?>>Hiện</option>
-                  <option value="2" <?= ($category['status'] == 2) ? 'selected' : '' ?>>Ẩn</option>
-                  <option value="3" <?= ($category['status'] == 3) ? 'selected' : '' ?>>Hết Hàng</option>
+                  <option value="Hiện" <?= ($category['status'] == "Hiện") ? 'selected' : '' ?>>Hiện</option>
+                  <option value="Ẩn" <?= ($category['status'] == "Ẩn") ? 'selected' : '' ?>>Ẩn</option>
                 </select>
               </div>
               <button type="submit" class="btn btn-primary" name="submit">Cập nhật</button>

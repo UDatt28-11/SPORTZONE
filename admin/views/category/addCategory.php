@@ -17,8 +17,8 @@
                                 <div class="mb-3">
                                     <label for="status" class="form-label">Trạng Thái</label>
                                     <select class="form-select" name="status">
-                                         <option value="1">Hiện</option>
-                                         <option value="2">Ẩn</option>
+                                         <option value="Hiện">Hiện</option>
+                                         <option value="Ẩn">Ẩn</option>
                                     </select>
                                 </div>
                                 <button type="submit" class="btn btn-primary" name="submit">Thêm Danh Mục</button>

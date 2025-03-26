@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 24, 2025 at 11:13 AM
+-- Generation Time: Mar 25, 2025 at 08:49 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -101,13 +101,6 @@ CREATE TABLE `carts` (
   `quantity` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `carts`
---
-
-INSERT INTO `carts` (`id`, `user_id`, `pro_variant_id`, `quantity`) VALUES
-(1, 1, 1, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -136,7 +129,7 @@ INSERT INTO `categories` (`id`, `name`, `status`) VALUES
 
 CREATE TABLE `orders` (
   `id` int NOT NULL,
-  `user_id` int NOT NULL,
+  `user_id` int DEFAULT NULL,
   `total_price` int NOT NULL,
   `shipping_address` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `estimated_devery` date NOT NULL,
@@ -190,8 +183,8 @@ CREATE TABLE `products` (
   `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `description` text COLLATE utf8mb4_general_ci NOT NULL,
   `main_image` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `category_id` int NOT NULL,
-  `brand_id` int NOT NULL,
+  `category_id` int DEFAULT NULL,
+  `brand_id` int DEFAULT NULL,
   `date_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` enum('Ẩn','Hiện','Hết hàng','Chưa mở bán') COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -201,9 +194,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `main_image`, `category_id`, `brand_id`, `date_create`, `status`) VALUES
-(1, 'NOVABLAST 5 TOKYO', 'The NOVABLAST™ 5 TOKYO running shoe\'s midsole and outsole geometry that helps produce an energized ride.\r\n\r\nFF BLAST™ MAX cushioning helps create softer landings and a more energized toe-off during your training.\r\n\r\nA tongue wing construction in the upper helps improve the fit while reducing tongue movement. It\'s complemented with an engineered mesh upper that offers more stretch and ventilation.\r\n\r\nStyle #: 1011C110-100', '1742626908file.twb.png', 1, 1, '2025-03-15 17:00:00', ''),
-(2, 'NOVABLAST 5 TOKYO', 'The NOVABLAST™ 5 TOKYO running shoe\'s midsole and outsole geometry that helps produce an energized ride.\r\n\r\nFF BLAST™ MAX cushioning helps create softer landings and a more energized toe-off during your training.\r\n\r\nA tongue wing construction in the upper helps improve the fit while reducing tongue movement. It\'s complemented with an engineered mesh upper that offers more stretch and ventilation.\r\n\r\nStyle #: 1011C110-100', 'asics.png', 1, 1, '2025-03-16 08:06:53', 'Ẩn'),
-(3, 'sdsd', 'dsds', '1742569619file.ob (1).png', 1, 1, '2025-03-21 08:06:59', 'Ẩn');
+(7, '11', '11', '1742830257novaflow.jpg', 1, 1, '2025-03-24 08:30:57', 'Hiện');
 
 -- --------------------------------------------------------
 
@@ -240,13 +231,6 @@ CREATE TABLE `product_feedbacks` (
   `status` enum('Ẩn','Hiện') COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `product_feedbacks`
---
-
-INSERT INTO `product_feedbacks` (`id`, `product_id`, `user_id`, `content`, `date_create`, `rate`, `interact`, `status`) VALUES
-(1, 1, 1, 'chan đê', '2025-03-16 08:36:33', 0, 0, 'Ẩn');
-
 -- --------------------------------------------------------
 
 --
@@ -258,13 +242,6 @@ CREATE TABLE `product_image` (
   `pro_variant_id` int NOT NULL,
   `Image_url` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `product_image`
---
-
-INSERT INTO `product_image` (`id`, `pro_variant_id`, `Image_url`) VALUES
-(1, 1, 'imageColor.png');
 
 -- --------------------------------------------------------
 
@@ -321,19 +298,12 @@ INSERT INTO `product_sizes` (`id`, `size`) VALUES
 CREATE TABLE `product_variants` (
   `id` int NOT NULL,
   `product_id` int NOT NULL,
-  `product_size_id` int NOT NULL,
-  `product_color_id` int NOT NULL,
+  `product_size_id` int DEFAULT NULL,
+  `product_color_id` int DEFAULT NULL,
   `stock` int NOT NULL,
   `price` int NOT NULL,
   `status` enum('Ẩn','Hiện','Hết hàng','Chưa mở bán') COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `product_variants`
---
-
-INSERT INTO `product_variants` (`id`, `product_id`, `product_size_id`, `product_color_id`, `stock`, `price`, `status`) VALUES
-(1, 1, 1, 1, 1, 8990000, 'Ẩn');
 
 -- --------------------------------------------------------
 
@@ -509,9 +479,9 @@ ALTER TABLE `payments`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_products_name` (`name`),
   ADD KEY `fk_category_id_product` (`category_id`),
-  ADD KEY `fk_brand_id_product` (`brand_id`),
-  ADD KEY `idx_products_name` (`name`);
+  ADD KEY `fk_brand_id_product` (`brand_id`);
 
 --
 -- Indexes for table `product_colors`
@@ -648,7 +618,7 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `product_colors`
@@ -738,7 +708,7 @@ ALTER TABLE `carts`
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `fk_user_id_order` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `fk_user_id_order` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL;
 
 --
 -- Constraints for table `order_details`
@@ -757,8 +727,8 @@ ALTER TABLE `payments`
 -- Constraints for table `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `fk_brand_id_product` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`),
-  ADD CONSTRAINT `fk_category_id_product` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
+  ADD CONSTRAINT `fk_brand_id_product` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `fk_category_id_product` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE SET NULL;
 
 --
 -- Constraints for table `product_feedbacks`
@@ -777,9 +747,9 @@ ALTER TABLE `product_image`
 -- Constraints for table `product_variants`
 --
 ALTER TABLE `product_variants`
-  ADD CONSTRAINT `fk_color_id_variant` FOREIGN KEY (`product_color_id`) REFERENCES `product_colors` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_color_id_variant` FOREIGN KEY (`product_color_id`) REFERENCES `product_colors` (`id`) ON DELETE SET NULL,
   ADD CONSTRAINT `fk_product_id_variant` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_size_id_variant` FOREIGN KEY (`product_size_id`) REFERENCES `product_sizes` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `fk_size_id_variant` FOREIGN KEY (`product_size_id`) REFERENCES `product_sizes` (`id`) ON DELETE SET NULL;
 
 --
 -- Constraints for table `shipping`

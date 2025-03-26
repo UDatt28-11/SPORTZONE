@@ -34,10 +34,9 @@ class Category{
         $sql = "INSERT INTO categories (name, status) VALUES (:name, :status)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':name', $name, PDO::PARAM_STR);
-        $stmt->bindParam(':status', $status, PDO::PARAM_INT);
+        $stmt->bindParam(':status', $status, PDO::PARAM_STR); // Truyền status dưới dạng chuỗi
 
-        // Thực thi câu truy vấn và trả về kết quả
-        return $stmt->execute();
+        return $stmt->execute(); // Thực thi câu truy vấn và trả về kết quả
     }
     public function deleteCategory($id)
     {
